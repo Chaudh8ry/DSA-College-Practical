@@ -1,8 +1,8 @@
 // C code for Bubble Sort
 #include<stdio.h>
     void bubble_sort(int arr[],int n){
-        for(int i=n-1; i>0; i--){ //This Loop is For No. of Passes 
-            for(int j=0; j<=i-1; j++){
+        for(int i=n-1; i>=0; i--){ // OuterLoop is For No. of Passes which will be (n-1) 
+            for(int j=0; j<=i-1; j++){ //InnerLoop is for Adjacent Swapping, it will be dependent on OuterLoop 'i'
                 if(arr[j]>arr[j+1]){
                     int temp = arr[j+1];
                     arr[j+1] = arr[j];
