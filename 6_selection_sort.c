@@ -3,12 +3,12 @@
 void selection_sort(int arr[],int n){
     for(int i=0; i<=n-2; i++){
         int min=i;
-        for(int j=i+1; j<=n-1; j++){ //this loop finds minimum value in array
+        for(int j=i+1; j<=n-1; j++){ //this inner loop finds minimum value in array
             if(arr[j]<arr[min]){
-                min=j;
+                min=j; //here index are swaped
             }
         }
-        int temp = arr[min];
+        int temp = arr[min]; // here elements are swapped using the index
             arr[min] = arr[i];
             arr[i] = temp;
     }
