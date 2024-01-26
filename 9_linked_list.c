@@ -9,10 +9,11 @@ int main(){
     };
     struct node *head, *newNode, *temp;
     head = NULL;
-    int choice;
+    int choice=0;
     printf("Enter Your choice b/w '1' and '0': ");
     scanf("%d",&choice);
-    while(choice == 1){
+
+    while(choice != 1){
     newNode = (struct node*) malloc(sizeof(struct node));
 
     printf("Enter data: ");
