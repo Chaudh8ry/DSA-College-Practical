@@ -16,6 +16,20 @@ void linkedListTraversal(struct node *head) {
     }
 }
 
+//------------------------------------Insert At Last-------------------------------------------- 
+void insertAtLast(struct node *head){
+    struct node *temp = head;
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    printf("Enter item to insert: "); 
+    scanf("%d",&newNode -> data);
+    newNode -> next = NULL;
+    while(temp -> next != NULL){
+        temp = temp -> next;
+    }
+    temp -> next = newNode;
+
+    linkedListTraversal(head);
+}
 
 int main(){
 
@@ -35,14 +49,8 @@ int main(){
     Node_3 -> data = 6;
     Node_3 -> next = NULL;
 
-    linkedListTraversal(head);
-
+    //linkedListTraversal(head);
+    insertAtLast(head);
     
     return 0;
 }
-
-/*
-(void *)head is a typecast that explicitly converts the pointer head to type void*, which is what %p expects.
-
-Using (void *) in this context is a common practice to ensure compatibility and consistency when printing addresses using %p. It tells the compiler to interpret the pointer as a generic pointer to memory (void*), which is appropriate for printing addresses.
-*/
