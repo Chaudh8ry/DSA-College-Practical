@@ -36,8 +36,7 @@ int main(){
     Node_3 -> next = NULL;
 
     linkedListTraversal(head);
-
-    
+  
     return 0;
 }
 

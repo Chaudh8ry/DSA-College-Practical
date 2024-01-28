@@ -16,7 +16,7 @@ void linkedListTraversal(struct node *head) {
     }
 }
 
-//------------------------------------Insert At Last-------------------------------------------- 
+//---------------------------------------Insert At Last----------------------------------------------
 void insertAtLast(struct node *head){
     struct node *temp = head;
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
