@@ -1,0 +1,24 @@
+In C, when you pass a pointer to a function, you're essentially passing a copy of the pointer's value. This means that if you modify the pointer within the function, the changes won't be reflected outside the function.
+
+When you use (struct node *head) as a parameter in a function, you're passing a copy of the pointer to the head node of the linked list. Any changes made to this copy of the pointer inside the function will not affect the original pointer outside the function.
+
+To modify the original pointer (i.e., the head pointer itself) and reflect the changes outside the function, you need to pass a pointer to the pointer. This is why we use struct node **head as a parameter in functions that need to modify the head pointer itself.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Using (struct node **head) as a parameter for functions that modify the head pointer itself (such as insertion at the beginning or deletion of nodes) is still a good practice, especially when you have multiple functions performing insertion and deletion operations within the same program.
+
+Here's why it's beneficial:
+
+Consistency: Using struct node **head ensures consistency across multiple functions. Since all these functions modify the head pointer, using the same parameter type (struct node **head) makes it clear that the head pointer is being modified.
+
+Flexibility: When you pass a pointer to the head pointer, you have the flexibility to modify the head pointer within any of these functions and have the changes reflected outside the function. This makes it easier to manage the head pointer's state consistently throughout your program.
+
+Modularity: By using struct node **head, you encapsulate the logic for updating the head pointer within each function. This improves the modularity of your code because each function is responsible for a specific operation (e.g., insertion or deletion) without needing to know the details of how the head pointer is managed elsewhere in the program.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Using struct node **head:
+
+If you want to modify the head pointer itself (e.g., inserting at the beginning of the list or updating the head pointer to a new node), you need to pass a pointer to the head pointer (i.e., struct node **head) as a parameter to the function.
+
+Using struct node *head:
+
+If you're inserting a node at a specific position within the linked list, and you're not modifying the head pointer itself, you can use struct node *head as a parameter. In this case, you'll traverse the list starting from the head node to find the insertion point and update the pointers accordingly without modifying the head pointer itself.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
