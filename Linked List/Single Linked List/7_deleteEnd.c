@@ -57,4 +57,3 @@ int main(){
     deleteEnd(head);
     return 0;
 }
-// save streak
