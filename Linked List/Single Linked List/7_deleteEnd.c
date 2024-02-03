@@ -15,21 +15,21 @@ void linkedListTraversal(struct node *head){
 }
 //---------------------------------------------------------------------------------------------
 void deleteEnd(struct node *head){
-    if(head == NULL){
+    if(head == NULL){ // condition checks if the linked list is empty 
         printf("Deletion NOT possible No Elements present");
     }
     else{
-        struct node *prevNode;
+        struct node *prevNode; // two pointers will be used to traverse the list
         struct node *temp = head; 
         while(temp -> next != NULL){
-            prevNode = temp;
-            temp = temp -> next;
+            prevNode = temp; //This is done to keep track of the node before temp. Since temp will be updated to the next node in the next iteration, prevNode will always be one step behind temp.
+            temp = temp -> next; //This line moves temp to the next node in the linked list
         }
-        if(temp == head){
+        if(temp == head){ //it means there is only one node in the linked list
             head = NULL;
         }
         else{
-            prevNode -> next = NULL;  //
+            prevNode -> next = NULL;  //removes the last node from the list.
         }
 
         free(temp);
