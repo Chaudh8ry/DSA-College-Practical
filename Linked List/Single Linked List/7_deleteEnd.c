@@ -13,7 +13,7 @@ void linkedListTraversal(struct node *head){
         temp = temp -> next;
     }
 }
-
+//---------------------------------------------------------------------------------------------
 void deleteEnd(struct node *head){
     if(head == NULL){
         printf("Deletion NOT possible No Elements present");
@@ -29,7 +29,7 @@ void deleteEnd(struct node *head){
             head = NULL;
         }
         else{
-            prevNode -> next = NULL;
+            prevNode -> next = NULL;  //
         }
 
         free(temp);
