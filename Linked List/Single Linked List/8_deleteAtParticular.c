@@ -37,22 +37,37 @@ void deleteAtParticular(struct node *head)
     if (head == NULL)
     {
         printf("No element to Delete");
+        return;
+    }
+    int pos;
+    printf("Enter Position of Node for Deletion: ");
+    scanf("%d", &pos); // lets assum '3'
+    if (pos < 1 || pos > lengthLL(head))
+    {
+        printf("Invalid Position");
+        return;
+    }
+
+    if (pos == 1) // removing 1st Node
+    {
+        struct node *temp1 = head;
+        head = temp1->next;
+        free(temp1);
     }
     else
     {
-        struct node *temp = head,*nextNode;
+        struct node *temp = head, *nextNode;
         int i = 1;
-        int pos;
-        printf("Enter Position of Node for Deletion: ");
-        scanf("%d",&pos); // lets assum '3'
-
-        while(i < pos-1){ // due to this condition temp will point to Node 2
-            temp = temp -> next;
+        while (i < pos - 1)
+        { // due to this condition temp will point to Node 2
+            temp = temp->next;
             i++;
         }
-        nextNode = temp -> next;
-        
+        nextNode = temp->next;       // nextNode is at Node 3 (Node that has to be deleted)
+        temp->next = nextNode->next; // this will store value of Node 3's 'next'(address of Node 4) in Node 2's 'next' which will cut Node 3 form list
+        free(nextNode);
     }
+    linkedListTraversal(head);
 }
 
 int main()
@@ -62,7 +77,6 @@ int main()
     struct node *Node_2 = (struct node *)malloc(sizeof(struct node));
     struct node *Node_3 = (struct node *)malloc(sizeof(struct node));
     struct node *Node_4 = (struct node *)malloc(sizeof(struct node));
-
 
     head = Node_1;
 
@@ -74,9 +88,9 @@ int main()
 
     Node_3->data = 5;
     Node_3->next = Node_4;
- 
+
     Node_4->data = 8;
     Node_4->next = NULL;
-    linkedListTraversal(head);
+    deleteAtParticular(head);
     return 0;
 }
