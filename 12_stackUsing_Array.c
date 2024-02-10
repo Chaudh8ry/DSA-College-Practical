@@ -18,7 +18,7 @@ int main()
     printf("\nEnter a operation from below for the STACK: \n");
 
     int operation;
-    
+
     do
     {
         printf("\n1.Push Operation \n 2.Pop Operation \n 3.Peek Operation \n 4.Display Operation \n 5.END \n\n");
@@ -54,7 +54,7 @@ int main()
 }
 //--------------------------------------------PUSH OPERATION-----------------------------------------------------
 void push(int size, int *stack)
-{   
+{
     if (top >= size - 1)
     {
         printf("\nStack Overflow!!!\n");
@@ -72,7 +72,7 @@ void push(int size, int *stack)
 //--------------------------------------------POP OPERATION------------------------------------------------------
 void pop(int size, int *stack)
 {
-    if (top <  0)
+    if (top < 0)
     {
         printf("\n Stack Underflow!!! \n");
     }
@@ -105,7 +105,8 @@ void display(int size, int *stack)
             printf("Stack Element: %d \n", stack[i]);
         }
     }
-    else if(top == -1){
+    else if (top == -1)
+    {
         printf("Stack is Empty!! \n");
     }
 }
